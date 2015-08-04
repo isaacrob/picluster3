@@ -1,0 +1,12 @@
+2015-08-04 19:29:02.239 [IPControllerApp] Hub listening on tcp://10.40.2.31:54822 for registration.
+2015-08-04 19:29:02.250 [IPControllerApp] Hub using DB backend: 'NoDB'
+2015-08-04 19:29:02.522 [IPControllerApp] hub::created hub
+2015-08-04 19:29:02.524 [IPControllerApp] writing connection info to /home/pi/.ipython/profile_picluster3/security/ipcontroller-client.json
+2015-08-04 19:29:02.527 [IPControllerApp] writing connection info to /home/pi/.ipython/profile_picluster3/security/ipcontroller-engine.json
+2015-08-04 19:29:02.530 [IPControllerApp] task::using Python leastload Task scheduler
+2015-08-04 19:29:02.531 [IPControllerApp] Heartmonitor started
+2015-08-04 19:29:02.581 [IPControllerApp] Creating pid file: /home/pi/.ipython/profile_picluster3/pid/ipcontroller.pid
+2015-08-04 19:29:04.726 [IPControllerApp] Received signal 2, shutting down
+2015-08-04 19:29:04.728 [IPControllerApp] terminating children...
+2015-08-04 19:29:04.736 [IPControllerApp] Received signal 2, shutting down
+2015-08-04 19:29:04.740 [IPControllerApp] terminating children...
