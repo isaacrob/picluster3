@@ -17,9 +17,11 @@ def writehostdata(hostfile,configfile,controller_ip):
 	file.close()
 	file=open(configfile,'w')
 	file.write('c = get_config()\n')
-	file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\'--ip="+controller_ip+"\']\n")
+	#file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\'--ip="+controller_ip+"\']\n")
+	#file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\"--ip=\'*\'\"]\n")
 	file.write("c.IPClusterEngines.engine_launcher_class = \'SSH\'\n")
 	file.write("c.IPClusterStart.controller_launcher_class = \'LocalControllerLauncher\'\n")
+	file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\"--ip=\'*\'\"]\n")
 	file.write("c.SSHEngineSetLauncher.engine_args = [\'--log-to-file\', \'--log-level=20\', \'--profile=picluster3\']\n")
 	file.write('c.SSHEngineSetLauncher.engines = {')
 	reachable=[]
