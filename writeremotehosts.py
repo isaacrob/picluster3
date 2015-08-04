@@ -21,8 +21,9 @@ def writehostdata(hostfile,configfile,controller_ip):
 	#file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\"--ip=\'*\'\"]\n")
 	file.write("c.IPClusterEngines.engine_launcher_class = \'SSH\'\n")
 	file.write("c.IPClusterStart.controller_launcher_class = \'LocalControllerLauncher\'\n")
-	file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\"--ip=\'*\'\"]\n")
+	file.write("c.LocalControllerLauncher.controller_args=[\'--log-to-file\',\'--log-level=20\',\'--ip="+myip+"\']\n")
 	file.write("c.SSHEngineSetLauncher.engine_args = [\'--log-to-file\', \'--log-level=20\', \'--profile=picluster3\']\n")
+	file.write("c.HubFactory.ip=\'*\'\n")
 	file.write('c.SSHEngineSetLauncher.engines = {')
 	reachable=[]
 	print(splithosts)
