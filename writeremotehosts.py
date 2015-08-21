@@ -1,10 +1,29 @@
 #! /usr/bin/python
-import socket, click, os, paramiko, pwd
+import socket, click, os, paramiko, pwd, sys
 from subprocess import call, check_output
 
-s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-s.connect(('8.8.8.8',80))
-myip=s.getsockname()[0]
+try:
+	import netifaces as ni
+	if "wlan0" in ni.interfaces():
+		print("using wireless")
+		myip=ni.ifaddresses("wlan0")[ni.AF_INET][0]['addr']
+		print("my ip address is "+myip)
+	elif "etho" in ni.interfaces():
+		print("could not find wlan0, using eth0")
+		myip=ni.ifaddresses("eth0")[ni.AF_INET][0]['addr']
+	else:
+		print("could not find suitable interface with netifaces")
+		sys.exit()
+except ImportError:
+	print("could not find netifaces, using socket")
+	s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+	s.connect(('8.8.8.8',80))
+	myip=s.getsockname()[0]
+except:
+	print("something else went wrong, using socket")
+	s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+	s.connect(("8.8.8.8",80))
+	myip=s.getsockname()[0]
 
 @click.command()
 @click.option('--hostfile',default='ipaddresses',help='which hostfile to boot with')
